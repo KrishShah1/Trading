@@ -1,0 +1,30 @@
+# Default parameters per strategy. The Streamlit cockpit overrides these live via
+# sliders; the headless CLI (scripts/run_backtest.py) uses these defaults.
+#
+# Every strategy answers one question each day: "what target weights do I want?".
+# These knobs shape that answer. Adding a new strategy = add a block here + a file
+# in engine/strategies/ + one line in engine/strategies/__init__.py.
+
+buy_and_hold:
+  # Benchmark / control group. Sets weights once on day 0, then never trades.
+  weighting: equal        # equal | market_cap
+
+atr_harvest:
+  # Volatility harvesting: trim winners, add to dips, measured in ATR units from
+  # each position's running entry price.
+  atr_period: 14
+  buy_mult: 1.5           # add when price <= entry - buy_mult * ATR
+  trim_mult: 3.0          # trim when price >= entry + trim_mult * ATR
+  trade_fraction: 0.25    # fraction of the position to add/trim per trigger
+  weighting: equal        # initial target weights
+
+rebalance:
+  # Threshold + calendar rebalance back to target weights (rebalancing premium).
+  weighting: equal        # target weights: equal | market_cap
+  drift_band: 0.05        # rebalance a name if |weight - target| exceeds this
+  freq: monthly           # calendar trigger: none | weekly | monthly | quarterly
+
+# Applies to all strategies during execution.
+execution:
+  start_cash: 20000       # ~ your current holdings total; all sleeves start here
+  cost_bps: 5             # round-trip transaction cost in basis points (0.05%)

@@ -1,0 +1,35 @@
+# Trading universe configuration (safe to commit — tickers only, no amounts).
+#
+# The full universe = your owned tickers + S&P 500 constituents (auto-pulled) +
+# any extra ETFs below, minus excluded tickers. Owned names are "pinned" and form
+# the `pinned` sleeve; only S&P 500 names face the full screen with keep_pinned=False.
+#
+# SHARE QUANTITIES ARE PRIVATE: put them in config/holdings.local.yaml (gitignored).
+# See config/holdings.local.example.yaml for the format. Without that file, the
+# `pinned` sleeve falls back to equal-weight instead of your true allocation.
+
+# Tickers you own (SPY / DJD are owned ETFs, so they live here too).
+owned:
+  - AAPL   # Apple
+  - AMD    # AMD
+  - CL     # Colgate
+  - CVX    # Chevron
+  - DIS    # Disney
+  - DJD    # Dow Jones Dividend ETF
+  - F      # Ford
+  - GOOG   # Google
+  - JPM    # JP Morgan Chase
+  - KO     # Coca-Cola
+  - META   # Meta / Facebook
+  - MSFT   # Microsoft
+  - NOK    # Nokia
+  - PG     # Procter & Gamble
+  - PYPL   # PayPal
+  - RTX    # Raytheon (RTX)
+  - SPY    # S&P 500 ETF
+
+# Extra ETFs to make tradeable in the universe that you do NOT own (optional).
+etfs: []
+
+# Never trade these, even if they appear in the S&P 500.
+exclude: []

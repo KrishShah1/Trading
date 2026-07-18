@@ -1,0 +1,7 @@
+# PRIVATE — your real share quantities. This file is gitignored (never committed).
+# Copy to config/holdings.local.yaml and fill in your shares. Ticker -> shares held.
+# Used to run the `pinned` sleeve as a holdings-weighted Buy & Hold (your true mix).
+holdings:
+  AAPL: 0.0
+  MSFT: 0.0
+  # ... one line per ticker you own

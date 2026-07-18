@@ -1,0 +1,23 @@
+# Cached market data & generated backtest outputs (regenerable, can be large)
+data/
+outputs/
+
+# Private config (real share quantities / secrets) — never commit
+config/holdings.local.yaml
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+*.egg-info/
+.pytest_cache/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
